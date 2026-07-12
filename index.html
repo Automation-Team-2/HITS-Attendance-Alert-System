@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student ERP Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React & ReactDOM (v18) -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <!-- GSAP (v3) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Babel Standalone for inline JSX compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- StaggeredMenu Stylesheet -->
+    <link rel="stylesheet" href="StaggeredMenu.css">
 </head>
 <body class="bg-amber-50 font-sans h-screen flex items-center justify-center">
     <!-- ======================================== -->
@@ -26,29 +35,20 @@
     <!-- ======================================== -->
     <!-- DASHBOARD CONTAINER (hidden on load)      -->
     <!-- ======================================== -->
-    <div id="dashboard-container" class="hidden w-full h-full flex">
-        <!-- ==================================== -->
-        <!-- SIDEBAR CONTAINER                     -->
-        <!-- ==================================== -->
-        <div class="w-64 bg-amber-800 text-white flex flex-col p-4">
-            <h1 class="text-xl font-bold mb-8 text-amber-200">Teacher Dashboard</h1>
-            <nav class="flex-1 space-y-2">
-                <button data-tab="attendance" class="tab-link w-full text-left py-2 px-3 rounded bg-amber-500">Attendance Tracker</button>
-                <button data-tab="history" class="tab-link w-full text-left py-2 px-3 rounded hover:bg-amber-700">Alert History</button>
-                <button data-tab="stats" class="tab-link w-full text-left py-2 px-3 rounded hover:bg-amber-700">Attendance Statistics</button>
-                <button data-tab="settings" class="tab-link w-full text-left py-2 px-3 rounded hover:bg-amber-700">API Configuration</button>
-            </nav>
-            <button id="logout-btn" class="mt-auto bg-red-500 hover:bg-red-600 py-2 rounded text-center">Logout</button>
-        </div>
+    <div id="dashboard-container" class="hidden w-full h-full relative flex">
+        <!-- React Sidebar Container -->
+        <div id="sidebar-root" class="absolute"></div>
         <!-- ==================================== -->
         <!-- MAIN CONTENT PANEL                    -->
         <!-- ==================================== -->
-        <div class="flex-1 flex flex-col">
-            <header class="bg-white shadow px-6 py-4 flex justify-between items-center">
+        <div class="flex-1 flex flex-col relative">
+            <!-- Reactive SoftAurora Background -->
+            <div id="aurora-root" class="absolute inset-0 pointer-events-none z-0"></div>
+            <header class="bg-white shadow px-6 py-4 flex justify-between items-center relative z-10">
                 <span class="font-semibold text-gray-700 text-lg">Student Attendance Tracking Panel</span>
-                <span class="text-amber-700 bg-amber-100 px-3 py-1 rounded-full text-xs font-bold">WhatsApp Gateway: Connected</span>
+                <span id="backend-status" class="text-gray-500 bg-gray-100 px-3 py-1 rounded-full text-xs font-bold mr-24">Checking...</span>
             </header>
-            <main class="p-6 flex-1 overflow-y-auto bg-amber-50/50">
+            <main class="p-6 flex-1 overflow-y-auto bg-amber-50/50 relative z-10">
                 <!-- ================================ -->
                 <!-- ATTENDANCE TRACKER TAB         -->
                 <!-- ================================ -->
@@ -56,30 +56,7 @@
                     <!-- ============================ -->
                     <!-- CLASSES GRID VIEW             -->
                     <!-- ============================ -->
-                    <div id="classes-grid">
-                        <h2 class="text-xl font-bold text-gray-800 mb-4">Your Classes Overview</h2>
-                        <p class="text-sm text-gray-500 mb-6">Select a section profile card below to view specific student records.</p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-white rounded-xl shadow p-6 border-l-4 border-amber-500">
-                                <span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-3">Overall 78%</span>
-                                <h3 class="text-lg font-bold text-gray-800">B.Tech CSE - Section A</h3>
-                                <p class="text-sm text-gray-500 mt-1">Total Students: 62</p>
-                                <button class="view-roster-btn mt-4 w-full bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-md text-sm transition" data-class="cse-a">View Student Roster</button>
-                            </div>
-                            <div class="bg-white rounded-xl shadow p-6 border-l-4 border-amber-500">
-                                <span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-3">Overall 71%</span>
-                                <h3 class="text-lg font-bold text-gray-800">B.Tech CSE - Section B</h3>
-                                <p class="text-sm text-gray-500 mt-1">Total Students: 58</p>
-                                <button class="view-roster-btn mt-4 w-full bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-md text-sm transition" data-class="cse-b">View Student Roster</button>
-                            </div>
-                            <div class="bg-white rounded-xl shadow p-6 border-l-4 border-amber-500">
-                                <span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-3">Overall 84%</span>
-                                <h3 class="text-lg font-bold text-gray-800">B.Tech IT - Section A</h3>
-                                <p class="text-sm text-gray-500 mt-1">Total Students: 45</p>
-                                <button class="view-roster-btn mt-4 w-full bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-md text-sm transition" data-class="it-a">View Student Roster</button>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="classes-grid"></div>
 
                     <!-- ============================ -->
                     <!-- STUDENT ROSTER VIEW (hidden)  -->
@@ -108,7 +85,7 @@
                 <!-- ALERT HISTORY TAB               -->
                 <!-- ================================ -->
                 <div id="tab-history" class="tab-content hidden">
-                    <h2 class="text-xl font-bold text-gray-800 mb-4">WhatsApp Broadcast Logs</h2>
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">SMS Broadcast Logs</h2>
 
                     <!-- ============================ -->
                     <!-- ALERT MESSAGE TEMPLATE        -->
@@ -138,52 +115,164 @@
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 <tr>
-                                    <td class="px-4 py-3 text-gray-600">2026-07-06 10:32 AM</td>
-                                    <td class="px-4 py-3 font-medium text-gray-800">Priya Singh</td>
-                                    <td class="px-4 py-3 text-gray-600">+91-9876543211</td>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-10 10:32 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Preeti</td>
+                                    <td class="px-4 py-3 text-gray-600">9386379402</td>
                                     <td class="px-4 py-3 text-gray-700">Data Structures</td>
-                                    <td class="px-4 py-3">65%</td>
-                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via API</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-3 text-gray-600">2026-07-06 09:15 AM</td>
-                                    <td class="px-4 py-3 font-medium text-gray-800">Sneha Reddy</td>
-                                    <td class="px-4 py-3 text-gray-600">+91-9876543213</td>
-                                    <td class="px-4 py-3 text-gray-700">Algorithms</td>
                                     <td class="px-4 py-3">48%</td>
-                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via API</span></td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-gray-600">2026-07-05 04:20 PM</td>
-                                    <td class="px-4 py-3 font-medium text-gray-800">Vikram Patel</td>
-                                    <td class="px-4 py-3 text-gray-600">+91-9876543221</td>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-10 09:15 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Tanish</td>
+                                    <td class="px-4 py-3 text-gray-600">9534192832</td>
+                                    <td class="px-4 py-3 text-gray-700">Algorithms</td>
+                                    <td class="px-4 py-3">45%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-10 08:45 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Naveen</td>
+                                    <td class="px-4 py-3 text-gray-600">9104332181</td>
+                                    <td class="px-4 py-3 text-gray-700">Operating Systems</td>
+                                    <td class="px-4 py-3">55%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-10 08:10 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Kabir</td>
+                                    <td class="px-4 py-3 text-gray-600">9849593103</td>
+                                    <td class="px-4 py-3 text-gray-700">Computer Networks</td>
+                                    <td class="px-4 py-3">52%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-09 04:20 PM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Sarthak</td>
+                                    <td class="px-4 py-3 text-gray-600">9939909169</td>
                                     <td class="px-4 py-3 text-gray-700">Database Systems</td>
-                                    <td class="px-4 py-3">78%</td>
+                                    <td class="px-4 py-3">42%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-09 03:50 PM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Lakshya</td>
+                                    <td class="px-4 py-3 text-gray-600">9654235116</td>
+                                    <td class="px-4 py-3 text-gray-700">Data Structures</td>
+                                    <td class="px-4 py-3">58%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-09 02:10 PM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Harsh</td>
+                                    <td class="px-4 py-3 text-gray-600">9316658760</td>
+                                    <td class="px-4 py-3 text-gray-700">Algorithms</td>
+                                    <td class="px-4 py-3">44%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-09 11:45 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Tarun</td>
+                                    <td class="px-4 py-3 text-gray-600">9475107991</td>
+                                    <td class="px-4 py-3 text-gray-700">Software Engineering</td>
+                                    <td class="px-4 py-3">55%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-08 11:45 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Ajay</td>
+                                    <td class="px-4 py-3 text-gray-600">9384251354</td>
+                                    <td class="px-4 py-3 text-gray-700">Operating Systems</td>
+                                    <td class="px-4 py-3">47%</td>
                                     <td class="px-4 py-3"><span class="inline-block bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded-full">Failed / Retrying</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-gray-600">2026-07-05 02:10 PM</td>
-                                    <td class="px-4 py-3 font-medium text-gray-800">Ishita Gupta</td>
-                                    <td class="px-4 py-3 text-gray-600">+91-9876543222</td>
-                                    <td class="px-4 py-3 text-gray-700">Computer Networks</td>
-                                    <td class="px-4 py-3">54%</td>
-                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via API</span></td>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-08 11:10 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Payal</td>
+                                    <td class="px-4 py-3 text-gray-600">9600133890</td>
+                                    <td class="px-4 py-3 text-gray-700">Data Structures</td>
+                                    <td class="px-4 py-3">62%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-gray-600">2026-07-04 11:45 AM</td>
-                                    <td class="px-4 py-3 font-medium text-gray-800">Divya Nair</td>
-                                    <td class="px-4 py-3 text-gray-600">+91-9876543224</td>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-08 10:30 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Ritika</td>
+                                    <td class="px-4 py-3 text-gray-600">9805009788</td>
+                                    <td class="px-4 py-3 text-gray-700">Computer Networks</td>
+                                    <td class="px-4 py-3">50%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-08 10:00 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Dhruv</td>
+                                    <td class="px-4 py-3 text-gray-600">9559407816</td>
+                                    <td class="px-4 py-3 text-gray-700">Algorithms</td>
+                                    <td class="px-4 py-3">65%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-07 04:45 PM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Ananya</td>
+                                    <td class="px-4 py-3 text-gray-600">9081219136</td>
+                                    <td class="px-4 py-3 text-gray-700">Database Systems</td>
+                                    <td class="px-4 py-3">57%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-07 03:30 PM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Vanshika</td>
+                                    <td class="px-4 py-3 text-gray-600">9413164752</td>
                                     <td class="px-4 py-3 text-gray-700">Software Engineering</td>
                                     <td class="px-4 py-3">60%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-07 02:15 PM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Komal</td>
+                                    <td class="px-4 py-3 text-gray-600">9854353462</td>
+                                    <td class="px-4 py-3 text-gray-700">Operating Systems</td>
+                                    <td class="px-4 py-3">68%</td>
                                     <td class="px-4 py-3"><span class="inline-block bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded-full">Failed / Retrying</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-gray-600">2026-07-04 10:00 AM</td>
-                                    <td class="px-4 py-3 font-medium text-gray-800">Saurabh Jain</td>
-                                    <td class="px-4 py-3 text-gray-600">+91-9876543234</td>
-                                    <td class="px-4 py-3 text-gray-700">Operating Systems</td>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-07 11:20 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Vishal</td>
+                                    <td class="px-4 py-3 text-gray-600">9498084124</td>
+                                    <td class="px-4 py-3 text-gray-700">Data Structures</td>
+                                    <td class="px-4 py-3">61%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-07 10:05 AM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Shreya</td>
+                                    <td class="px-4 py-3 text-gray-600">9687234309</td>
+                                    <td class="px-4 py-3 text-gray-700">Algorithms</td>
+                                    <td class="px-4 py-3">63%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-06 04:30 PM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Rashi</td>
+                                    <td class="px-4 py-3 text-gray-600">9579868727</td>
+                                    <td class="px-4 py-3 text-gray-700">Database Systems</td>
+                                    <td class="px-4 py-3">59%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-06 03:15 PM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Namrata</td>
+                                    <td class="px-4 py-3 text-gray-600">9434873471</td>
+                                    <td class="px-4 py-3 text-gray-700">Computer Networks</td>
+                                    <td class="px-4 py-3">53%</td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-gray-600">2026-07-06 02:00 PM</td>
+                                    <td class="px-4 py-3 font-medium text-gray-800">Pooja</td>
+                                    <td class="px-4 py-3 text-gray-600">9455812236</td>
+                                    <td class="px-4 py-3 text-gray-700">Software Engineering</td>
                                     <td class="px-4 py-3">66%</td>
-                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via API</span></td>
+                                    <td class="px-4 py-3"><span class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">Delivered via SMS</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -201,18 +290,18 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         <div class="bg-white rounded-xl shadow p-5 border-t-4 border-amber-500">
                             <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide">Total Alerts Sent This Week</p>
-                            <p class="text-3xl font-bold text-gray-800 mt-2">24</p>
-                            <p class="text-xs text-gray-500 mt-1">+6 from last week</p>
+                            <p class="text-3xl font-bold text-gray-800 mt-2">20</p>
+                            <p class="text-xs text-gray-500 mt-1">Students below 75% threshold</p>
                         </div>
                         <div class="bg-white rounded-xl shadow p-5 border-t-4 border-amber-500">
-                            <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide">Average System Attendance Rate</p>
-                            <p class="text-3xl font-bold text-gray-800 mt-2">74.3%</p>
-                            <p class="text-xs text-gray-500 mt-1">-1.2% from last month</p>
+                            <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide">Total Students Tracked</p>
+                            <p class="text-3xl font-bold text-gray-800 mt-2">80</p>
+                            <p class="text-xs text-gray-500 mt-1">CSE: 27 | AERO: 27 | IT: 26</p>
                         </div>
                         <div class="bg-white rounded-xl shadow p-5 border-t-4 border-amber-500">
-                            <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide">Highest Subject Failure Rate</p>
-                            <p class="text-3xl font-bold text-gray-800 mt-2">Algorithms</p>
-                            <p class="text-xs text-gray-500 mt-1">42% of students below 75%</p>
+                            <p class="text-xs font-semibold text-amber-700 uppercase tracking-wide">Students Below 75% Threshold</p>
+                            <p class="text-3xl font-bold text-gray-800 mt-2">20</p>
+                            <p class="text-xs text-gray-500 mt-1">Avg attendance: 55.5%</p>
                         </div>
                     </div>
 
@@ -241,7 +330,7 @@
                     <h2 class="text-xl font-bold text-gray-800 mb-4">API Configuration</h2>
                     <div class="bg-white rounded-xl shadow p-6 max-w-2xl">
                         <div class="mb-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp Gateway Base URL</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">SMS Gateway Base URL</label>
                             <input type="text" id="api-base-url" class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-amber-500" placeholder="https://twilio.com" />
                         </div>
                         <div class="mb-4">
@@ -249,7 +338,7 @@
                             <input type="password" id="api-token" class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-amber-500" placeholder="Enter bearer token" />
                         </div>
                         <div class="mb-6">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp Template Message ID</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">SMS Template Message ID</label>
                             <input type="text" id="api-template-id" class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-amber-500" placeholder="attendance_recovery_alert" />
                         </div>
                         <button id="save-settings-btn" class="bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-6 rounded-md transition">Save Configuration</button>
@@ -259,5 +348,713 @@
         </div>
     </div>
     <script src="app.js"></script>
+
+    <!-- React & StaggeredMenu Integration -->
+    <script type="text/babel">
+        const { useState, useLayoutEffect, useRef, useCallback, useEffect } = React;
+
+        const StaggeredMenu = ({
+          position = 'right',
+          colors = ['#B497CF', '#5227FF'],
+          items = [],
+          socialItems = [],
+          displaySocials = true,
+          displayItemNumbering = true,
+          className,
+          logoUrl,
+          menuButtonColor = '#fff',
+          openMenuButtonColor = '#fff',
+          accentColor = '#5227FF',
+          changeMenuColorOnOpen = true,
+          isFixed = false,
+          closeOnClickAway = true,
+          onMenuOpen,
+          onMenuClose
+        }) => {
+          const [open, setOpen] = useState(false);
+          const openRef = useRef(false);
+          const panelRef = useRef(null);
+          const preLayersRef = useRef(null);
+          const preLayerElsRef = useRef([]);
+          const plusHRef = useRef(null);
+          const plusVRef = useRef(null);
+          const iconRef = useRef(null);
+          const textInnerRef = useRef(null);
+          const textWrapRef = useRef(null);
+          const [textLines, setTextLines] = useState(['Menu', 'Close']);
+
+          const openTlRef = useRef(null);
+          const closeTweenRef = useRef(null);
+          const spinTweenRef = useRef(null);
+          const textCycleAnimRef = useRef(null);
+          const colorTweenRef = useRef(null);
+          const toggleBtnRef = useRef(null);
+          const busyRef = useRef(false);
+          const itemEntranceTweenRef = useRef(null);
+
+          useLayoutEffect(() => {
+            const ctx = gsap.context(() => {
+              const panel = panelRef.current;
+              const preContainer = preLayersRef.current;
+              const plusH = plusHRef.current;
+              const plusV = plusVRef.current;
+              const icon = iconRef.current;
+              const textInner = textInnerRef.current;
+              if (!panel || !plusH || !plusV || !icon || !textInner) return;
+
+              let preLayers = [];
+              if (preContainer) {
+                preLayers = Array.from(preContainer.querySelectorAll('.sm-prelayer'));
+              }
+              preLayerElsRef.current = preLayers;
+
+              const offscreen = position === 'left' ? -100 : 100;
+              gsap.set([panel, ...preLayers], { xPercent: offscreen, opacity: 1 });
+              if (preContainer) {
+                gsap.set(preContainer, { xPercent: 0, opacity: 1 });
+              }
+              gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
+              gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
+              gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
+              gsap.set(textInner, { yPercent: 0 });
+              if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
+            });
+            return () => ctx.revert();
+          }, [menuButtonColor, position]);
+
+          const buildOpenTimeline = useCallback(() => {
+            const panel = panelRef.current;
+            const layers = preLayerElsRef.current;
+            if (!panel) return null;
+
+            openTlRef.current?.kill();
+            if (closeTweenRef.current) {
+              closeTweenRef.current.kill();
+              closeTweenRef.current = null;
+            }
+            itemEntranceTweenRef.current?.kill();
+
+            const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel'));
+            const numberEls = Array.from(panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item'));
+            const socialTitle = panel.querySelector('.sm-socials-title');
+            const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link'));
+
+            const offscreen = position === 'left' ? -100 : 100;
+            const layerStates = layers.map(el => ({ el, start: offscreen }));
+            const panelStart = offscreen;
+
+            if (itemEls.length) {
+              gsap.set(itemEls, { yPercent: 140, rotate: 10 });
+            }
+            if (numberEls.length) {
+              gsap.set(numberEls, { '--sm-num-opacity': 0 });
+            }
+            if (socialTitle) {
+              gsap.set(socialTitle, { opacity: 0 });
+            }
+            if (socialLinks.length) {
+              gsap.set(socialLinks, { y: 25, opacity: 0 });
+            }
+
+            const tl = gsap.timeline({ paused: true });
+
+            layerStates.forEach((ls, i) => {
+              tl.fromTo(ls.el, { xPercent: ls.start }, { xPercent: 0, duration: 0.5, ease: 'power4.out' }, i * 0.07);
+            });
+            const lastTime = layerStates.length ? (layerStates.length - 1) * 0.07 : 0;
+            const panelInsertTime = lastTime + (layerStates.length ? 0.08 : 0);
+            const panelDuration = 0.65;
+            tl.fromTo(
+              panel,
+              { xPercent: panelStart },
+              { xPercent: 0, duration: panelDuration, ease: 'power4.out' },
+              panelInsertTime
+            );
+
+            if (itemEls.length) {
+              const itemsStartRatio = 0.15;
+              const itemsStart = panelInsertTime + panelDuration * itemsStartRatio;
+              tl.to(
+                itemEls,
+                {
+                  yPercent: 0,
+                  rotate: 0,
+                  duration: 1,
+                  ease: 'power4.out',
+                  stagger: { each: 0.1, from: 'start' }
+                },
+                itemsStart
+              );
+              if (numberEls.length) {
+                tl.to(
+                  numberEls,
+                  {
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    '--sm-num-opacity': 1,
+                    stagger: { each: 0.08, from: 'start' }
+                  },
+                  itemsStart + 0.1
+                );
+              }
+            }
+
+            if (socialTitle || socialLinks.length) {
+              const socialsStart = panelInsertTime + panelDuration * 0.4;
+              if (socialTitle) {
+                tl.to(
+                  socialTitle,
+                  {
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power2.out'
+                  },
+                  socialsStart
+                );
+              }
+              if (socialLinks.length) {
+                tl.to(
+                  socialLinks,
+                  {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.55,
+                    ease: 'power3.out',
+                    stagger: { each: 0.08, from: 'start' },
+                    onComplete: () => {
+                      gsap.set(socialLinks, { clearProps: 'opacity' });
+                    }
+                  },
+                  socialsStart + 0.04
+                );
+              }
+            }
+
+            openTlRef.current = tl;
+            return tl;
+          }, [position]);
+
+          const playOpen = useCallback(() => {
+            if (busyRef.current) return;
+            busyRef.current = true;
+            const tl = buildOpenTimeline();
+            if (tl) {
+              tl.eventCallback('onComplete', () => {
+                busyRef.current = false;
+              });
+              tl.play(0);
+            } else {
+              busyRef.current = false;
+            }
+          }, [buildOpenTimeline]);
+
+          const playClose = useCallback(() => {
+            openTlRef.current?.kill();
+            openTlRef.current = null;
+            itemEntranceTweenRef.current?.kill();
+
+            const panel = panelRef.current;
+            const layers = preLayerElsRef.current;
+            if (!panel) return;
+
+            const all = [...layers, panel];
+            closeTweenRef.current?.kill();
+            const offscreen = position === 'left' ? -100 : 100;
+            closeTweenRef.current = gsap.to(all, {
+              xPercent: offscreen,
+              duration: 0.32,
+              ease: 'power3.in',
+              overwrite: 'auto',
+              onComplete: () => {
+                const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel'));
+                if (itemEls.length) {
+                  gsap.set(itemEls, { yPercent: 140, rotate: 10 });
+                }
+                const numberEls = Array.from(panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item'));
+                if (numberEls.length) {
+                  gsap.set(numberEls, { '--sm-num-opacity': 0 });
+                }
+                const socialTitle = panel.querySelector('.sm-socials-title');
+                const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link'));
+                if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
+                if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
+                busyRef.current = false;
+              }
+            });
+          }, [position]);
+
+          const animateIcon = useCallback(opening => {
+            const icon = iconRef.current;
+            if (!icon) return;
+            spinTweenRef.current?.kill();
+            if (opening) {
+              spinTweenRef.current = gsap.to(icon, { rotate: 225, duration: 0.8, ease: 'power4.out', overwrite: 'auto' });
+            } else {
+              spinTweenRef.current = gsap.to(icon, { rotate: 0, duration: 0.35, ease: 'power3.inOut', overwrite: 'auto' });
+            }
+          }, []);
+
+          const animateColor = useCallback(
+            opening => {
+              const btn = toggleBtnRef.current;
+              if (!btn) return;
+              colorTweenRef.current?.kill();
+              if (changeMenuColorOnOpen) {
+                const targetColor = opening ? openMenuButtonColor : menuButtonColor;
+                colorTweenRef.current = gsap.to(btn, {
+                  color: targetColor,
+                  delay: 0.18,
+                  duration: 0.3,
+                  ease: 'power2.out'
+                });
+              } else {
+                gsap.set(btn, { color: menuButtonColor });
+              }
+            },
+            [openMenuButtonColor, menuButtonColor, changeMenuColorOnOpen]
+          );
+
+          useEffect(() => {
+            if (toggleBtnRef.current) {
+              if (changeMenuColorOnOpen) {
+                const targetColor = openRef.current ? openMenuButtonColor : menuButtonColor;
+                gsap.set(toggleBtnRef.current, { color: targetColor });
+              } else {
+                gsap.set(toggleBtnRef.current, { color: menuButtonColor });
+              }
+            }
+          }, [changeMenuColorOnOpen, menuButtonColor, openMenuButtonColor]);
+
+          const animateText = useCallback(opening => {
+            const inner = textInnerRef.current;
+            if (!inner) return;
+            textCycleAnimRef.current?.kill();
+
+            const currentLabel = opening ? 'Menu' : 'Close';
+            const targetLabel = opening ? 'Close' : 'Menu';
+            const cycles = 3;
+            const seq = [currentLabel];
+            let last = currentLabel;
+            for (let i = 0; i < cycles; i++) {
+              last = last === 'Menu' ? 'Close' : 'Menu';
+              seq.push(last);
+            }
+            if (last !== targetLabel) seq.push(targetLabel);
+            seq.push(targetLabel);
+            setTextLines(seq);
+
+            gsap.set(inner, { yPercent: 0 });
+            const lineCount = seq.length;
+            const finalShift = ((lineCount - 1) / lineCount) * 100;
+            textCycleAnimRef.current = gsap.to(inner, {
+              yPercent: -finalShift,
+              duration: 0.5 + lineCount * 0.07,
+              ease: 'power4.out'
+            });
+          }, []);
+
+          const toggleMenu = useCallback(() => {
+            const target = !openRef.current;
+            openRef.current = target;
+            setOpen(target);
+            if (target) {
+              onMenuOpen?.();
+              playOpen();
+            } else {
+              onMenuClose?.();
+              playClose();
+            }
+            animateIcon(target);
+            animateColor(target);
+            animateText(target);
+          }, [playOpen, playClose, animateIcon, animateColor, animateText, onMenuOpen, onMenuClose]);
+
+          const closeMenu = useCallback(() => {
+            if (openRef.current) {
+              openRef.current = false;
+              setOpen(false);
+              onMenuClose?.();
+              playClose();
+              animateIcon(false);
+              animateColor(false);
+              animateText(false);
+            }
+          }, [playClose, animateIcon, animateColor, animateText, onMenuClose]);
+
+          useEffect(() => {
+            if (!closeOnClickAway || !open) return;
+
+            const handleClickOutside = event => {
+              if (
+                panelRef.current &&
+                !panelRef.current.contains(event.target) &&
+                toggleBtnRef.current &&
+                !toggleBtnRef.current.contains(event.target)
+              ) {
+                closeMenu();
+              }
+            };
+
+            document.addEventListener('mousedown', handleClickOutside);
+            return () => {
+              document.removeEventListener('mousedown', handleClickOutside);
+            };
+          }, [closeOnClickAway, open, closeMenu]);
+
+          return (
+            <div
+              className={(className ? className + ' ' : '') + 'staggered-menu-wrapper' + (isFixed ? ' fixed-wrapper' : '')}
+              style={accentColor ? { ['--sm-accent']: accentColor } : undefined}
+              data-position={position}
+              data-open={open || undefined}
+            >
+              <div ref={preLayersRef} className="sm-prelayers" aria-hidden="true">
+                {(() => {
+                  const raw = colors && colors.length ? colors.slice(0, 4) : ['#1e1e22', '#35353c'];
+                  let arr = [...raw];
+                  if (arr.length >= 3) {
+                    const mid = Math.floor(arr.length / 2);
+                    arr.splice(mid, 1);
+                  }
+                  return arr.map((c, i) => <div key={i} className="sm-prelayer" style={{ background: c }} />);
+                })()}
+              </div>
+              <header className="staggered-menu-header" aria-label="Main navigation header">
+                {logoUrl && (
+                  <div className="sm-logo" aria-label="Logo">
+                    <img
+                      src={logoUrl}
+                      alt="Logo"
+                      className="sm-logo-img"
+                      draggable={false}
+                      width={110}
+                      height={24}
+                    />
+                  </div>
+                )}
+                <button
+                  ref={toggleBtnRef}
+                  className="sm-toggle"
+                  aria-label={open ? 'Close menu' : 'Open menu'}
+                  aria-expanded={open}
+                  aria-controls="staggered-menu-panel"
+                  onClick={toggleMenu}
+                  type="button"
+                >
+                  <span ref={textWrapRef} className="sm-toggle-textWrap" aria-hidden="true">
+                    <span ref={textInnerRef} className="sm-toggle-textInner">
+                      {textLines.map((l, i) => (
+                        <span className="sm-toggle-line" key={i}>
+                          {l}
+                        </span>
+                      ))}
+                    </span>
+                  </span>
+                  <span ref={iconRef} className="sm-icon" aria-hidden="true">
+                    <span ref={plusHRef} className="sm-icon-line" />
+                    <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
+                  </span>
+                </button>
+              </header>
+
+              <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" aria-hidden={!open}>
+                <div className="sm-panel-inner">
+                  <h2 className="text-xl font-bold mb-4 text-amber-900 border-b border-amber-100 pb-3" style={{ fontFamily: 'sans-serif' }}>Teacher Dashboard</h2>
+                  <ul className="sm-panel-list" role="list" data-numbering={displayItemNumbering || undefined}>
+                    {items && items.length ? (
+                      items.map((it, idx) => (
+                        <li className="sm-panel-itemWrap" key={it.label + idx}>
+                          <a 
+                            className="sm-panel-item" 
+                            href={it.link} 
+                            aria-label={it.ariaLabel} 
+                            data-index={idx + 1}
+                            onClick={(e) => {
+                              if (it.onClick) {
+                                e.preventDefault();
+                                it.onClick();
+                              }
+                              closeMenu();
+                            }}
+                          >
+                            <span className="sm-panel-itemLabel">{it.label}</span>
+                          </a>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="sm-panel-itemWrap" aria-hidden="true">
+                        <span className="sm-panel-item">
+                          <span className="sm-panel-itemLabel">No items</span>
+                        </span>
+                      </li>
+                    )}
+                  </ul>
+                  {displaySocials && socialItems && socialItems.length > 0 && (
+                    <div className="sm-socials" aria-label="Social links">
+                      <h3 className="sm-socials-title">System Links</h3>
+                      <ul className="sm-socials-list" role="list">
+                        {socialItems.map((s, i) => (
+                          <li key={s.label + i} className="sm-socials-item">
+                            <a href={s.link} target="_blank" rel="noopener noreferrer" className="sm-socials-link">
+                              {s.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </aside>
+            </div>
+          );
+        };
+
+        const StaggeredMenuApp = () => {
+          const menuItems = [
+            { 
+              label: 'Attendance Tracker', 
+              ariaLabel: 'Go to Attendance Tracker', 
+              link: '#attendance',
+              onClick: () => window.switchTab('attendance')
+            },
+            { 
+              label: 'Alert History', 
+              ariaLabel: 'Go to Alert History', 
+              link: '#history',
+              onClick: () => window.switchTab('history')
+            },
+            { 
+              label: 'Alert Statistics', 
+              ariaLabel: 'Go to Alert Statistics', 
+              link: '#stats',
+              onClick: () => window.switchTab('stats')
+            },
+            { 
+              label: 'Api Configuration', 
+              ariaLabel: 'Go to API Configuration', 
+              link: '#settings',
+              onClick: () => window.switchTab('settings')
+            },
+            { 
+              label: 'Logout', 
+              ariaLabel: 'Log out', 
+              link: '#logout',
+              onClick: () => window.triggerLogout()
+            }
+          ];
+
+          const socialItems = [
+            { label: 'Admin Portal', link: '#' },
+            { label: 'Support Desk', link: '#' },
+            { label: 'System Status', link: '#' }
+          ];
+
+          return (
+            <StaggeredMenu
+              position="right"
+              items={menuItems}
+              socialItems={socialItems}
+              displaySocials={true}
+              displayItemNumbering={true}
+              menuButtonColor="#78350f"
+              openMenuButtonColor="#fff"
+              changeMenuColorOnOpen={true}
+              colors={['#d97706', '#78350f']}
+              logoUrl=""
+              accentColor="#d97706"
+              isFixed={true}
+              onMenuOpen={() => console.log('Menu opened')}
+              onMenuClose={() => console.log('Menu closed')}
+            />
+          );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('sidebar-root'));
+        root.render(<StaggeredMenuApp />);
+    </script>
+
+    <!-- Pure WebGL Aurora — zero external dependencies -->
+    <script>
+    (function() {
+      function hexRgb(hex) {
+        var h = hex.replace('#','');
+        return [parseInt(h.slice(0,2),16)/255, parseInt(h.slice(2,4),16)/255, parseInt(h.slice(4,6),16)/255];
+      }
+
+      var vsrc =
+        'attribute vec2 a_pos;' +
+        'void main(){gl_Position=vec4(a_pos,0.0,1.0);}';
+
+      var fsrc =
+        'precision highp float;' +
+        'uniform float uTime;' +
+        'uniform vec2  uRes;' +
+        'uniform float uSpeed;' +
+        'uniform float uScale;' +
+        'uniform float uBright;' +
+        'uniform vec3  uC1;' +
+        'uniform vec3  uC2;' +
+        'uniform float uNFreq;' +
+        'uniform float uNAmp;' +
+        'uniform float uBandH;' +
+        'uniform float uBandS;' +
+        'uniform float uODec;' +
+        'uniform float uLOff;' +
+        'uniform float uCSpd;' +
+        'uniform vec2  uMouse;' +
+        'uniform float uMInf;' +
+        '#define TAU 6.28318' +
+        ' vec3 gh(vec3 p){' +
+        '  p=vec3(dot(p,vec3(127.1,311.7,234.6)),dot(p,vec3(269.5,183.3,198.3)),dot(p,vec3(169.5,283.3,156.9)));' +
+        '  vec3 h=fract(sin(p)*43758.5453123);' +
+        '  float phi=acos(clamp(2.0*h.x-1.0,-1.0,1.0));' +
+        '  float theta=TAU*h.y;' +
+        '  return vec3(cos(theta)*sin(phi),sin(theta)*sin(phi),cos(phi));' +
+        '}' +
+        'float qs(float t){float t2=t*t;float t3=t2*t;return 6.0*t3*t2-15.0*t2*t2+10.0*t3;}' +
+        'float pn(float amp,float freq,float px,float py,float pz){' +
+        '  float x=px*freq;float y=py*freq;' +
+        '  float fx=floor(x);float fy=floor(y);float fz=floor(pz);' +
+        '  float cx=fx+1.0;float cy=fy+1.0;float cz=fz+1.0;' +
+        '  float d000=dot(gh(vec3(fx,fy,fz)),vec3(x-fx,y-fy,pz-fz));' +
+        '  float d100=dot(gh(vec3(cx,fy,fz)),vec3(x-cx,y-fy,pz-fz));' +
+        '  float d010=dot(gh(vec3(fx,cy,fz)),vec3(x-fx,y-cy,pz-fz));' +
+        '  float d110=dot(gh(vec3(cx,cy,fz)),vec3(x-cx,y-cy,pz-fz));' +
+        '  float d001=dot(gh(vec3(fx,fy,cz)),vec3(x-fx,y-fy,pz-cz));' +
+        '  float d101=dot(gh(vec3(cx,fy,cz)),vec3(x-cx,y-fy,pz-cz));' +
+        '  float d011=dot(gh(vec3(fx,cy,cz)),vec3(x-fx,y-cy,pz-cz));' +
+        '  float d111=dot(gh(vec3(cx,cy,cz)),vec3(x-cx,y-cy,pz-cz));' +
+        '  float sx=qs(x-fx);float sy=qs(y-fy);float sz=qs(pz-fz);' +
+        '  return amp*mix(mix(mix(d000,d100,sx),mix(d010,d110,sx),sy),mix(mix(d001,d101,sx),mix(d011,d111,sx),sy),sz);' +
+        '}' +
+        'vec3 cg(float t,vec3 a,vec3 b,vec3 c,vec3 d){return a+b*cos(TAU*(c*t+d));}' +
+        'float aglow(float t,vec2 sh){' +
+        '  vec2 uv=gl_FragCoord.xy/uRes.y+sh;' +
+        '  float n=0.0;float freq=uNFreq;float amp=uNAmp;vec2 sp=uv*uScale;' +
+        '  for(float i=0.0;i<3.0;i+=1.0){n+=pn(amp,freq,sp.x,sp.y,t);amp*=uODec;freq*=2.0;}' +
+        '  float yb=uv.y*10.0-uBandH*10.0;' +
+        '  return 0.3*max(exp(uBandS*(1.0-1.1*abs(n+yb))),0.0);' +
+        '}' +
+        'void main(){' +
+        '  vec2 uv=gl_FragCoord.xy/uRes;' +
+        '  float t=uSpeed*0.4*uTime;' +
+        '  vec2 sh=(uMouse-0.5)*uMInf;' +
+        '  vec3 col=vec3(0.0);' +
+        '  col+=0.99*aglow(t,sh)*cg(uv.x+uTime*uSpeed*0.2*uCSpd,vec3(0.5),vec3(0.5),vec3(1.0),vec3(0.3,0.2,0.2))*uC1;' +
+        '  col+=0.99*aglow(t+uLOff,sh)*cg(uv.x+uTime*uSpeed*0.1*uCSpd,vec3(0.5),vec3(0.5),vec3(2.0,1.0,0.0),vec3(0.5,0.2,0.25))*uC2;' +
+        '  col*=uBright;' +
+        '  float alpha=clamp(length(col),0.0,1.0);' +
+        '  gl_FragColor=vec4(col,alpha);' +
+        '}';
+
+      function mkShader(gl, type, src) {
+        var s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      }
+
+      function launch() {
+        var container = document.getElementById('aurora-root');
+        if (!container) return;
+
+        var canvas = document.createElement('canvas');
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0'; canvas.style.left = '0';
+        canvas.style.width = '100%'; canvas.style.height = '100%';
+        container.appendChild(canvas);
+
+        var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return;
+
+        var vs = mkShader(gl, gl.VERTEX_SHADER,   vsrc);
+        var fs = mkShader(gl, gl.FRAGMENT_SHADER, fsrc);
+        var prog = gl.createProgram();
+        gl.attachShader(prog, vs);
+        gl.attachShader(prog, fs);
+        gl.linkProgram(prog);
+        gl.useProgram(prog);
+
+        var buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,3,-1,-1,3]), gl.STATIC_DRAW);
+        var aPos = gl.getAttribLocation(prog, 'a_pos');
+        gl.enableVertexAttribArray(aPos);
+        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+        var uTime  = gl.getUniformLocation(prog,'uTime');
+        var uRes   = gl.getUniformLocation(prog,'uRes');
+        var uSpeed = gl.getUniformLocation(prog,'uSpeed');
+        var uScale = gl.getUniformLocation(prog,'uScale');
+        var uBright= gl.getUniformLocation(prog,'uBright');
+        var uC1    = gl.getUniformLocation(prog,'uC1');
+        var uC2    = gl.getUniformLocation(prog,'uC2');
+        var uNFreq = gl.getUniformLocation(prog,'uNFreq');
+        var uNAmp  = gl.getUniformLocation(prog,'uNAmp');
+        var uBandH = gl.getUniformLocation(prog,'uBandH');
+        var uBandS = gl.getUniformLocation(prog,'uBandS');
+        var uODec  = gl.getUniformLocation(prog,'uODec');
+        var uLOff  = gl.getUniformLocation(prog,'uLOff');
+        var uCSpd  = gl.getUniformLocation(prog,'uCSpd');
+        var uMouse = gl.getUniformLocation(prog,'uMouse');
+        var uMInf  = gl.getUniformLocation(prog,'uMInf');
+
+        gl.uniform1f(uSpeed, 0.4);
+        gl.uniform1f(uScale, 1.2);
+        gl.uniform1f(uBright, 1.0);
+        gl.uniform3fv(uC1, hexRgb('#fbbf24'));
+        gl.uniform3fv(uC2, hexRgb('#78350f'));
+        gl.uniform1f(uNFreq, 2.0);
+        gl.uniform1f(uNAmp,  0.8);
+        gl.uniform1f(uBandH, 0.45);
+        gl.uniform1f(uBandS, 1.2);
+        gl.uniform1f(uODec,  0.1);
+        gl.uniform1f(uLOff,  0.0);
+        gl.uniform1f(uCSpd,  1.0);
+        gl.uniform1f(uMInf,  0.3);
+
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+        var mx = 0.5, my = 0.5, cx = 0.5, cy = 0.5;
+
+        window.addEventListener('mousemove', function(e) {
+          var r = canvas.getBoundingClientRect();
+          mx = (e.clientX - r.left) / Math.max(r.width, 1);
+          my = 1.0 - (e.clientY - r.top)  / Math.max(r.height, 1);
+        });
+
+        function resize() {
+          var w = container.offsetWidth;
+          var h = container.offsetHeight;
+          if (w > 0 && h > 0) {
+            canvas.width = w; canvas.height = h;
+            gl.viewport(0, 0, w, h);
+            gl.uniform2f(uRes, w, h);
+          }
+        }
+        resize();
+        window._auroraResize = resize;
+        window.addEventListener('resize', resize);
+
+        var raf;
+        function draw(ts) {
+          raf = requestAnimationFrame(draw);
+          cx += 0.05*(mx-cx); cy += 0.05*(my-cy);
+          gl.uniform1f(uTime, ts*0.001);
+          gl.uniform2f(uMouse, cx, cy);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+        }
+        raf = requestAnimationFrame(draw);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', launch);
+      } else {
+        launch();
+      }
+    })();
+    </script>
 </body>
 </html>
