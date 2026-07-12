@@ -50,7 +50,7 @@ async def send_alert(phone: str, message: str, channel: str = "whatsapp") -> boo
 
 def build_alert_message(student_name: str, subject_name: str, section_name: str, percentage: float) -> str:
     return (
-        f"⚠️ Attendance Alert - HITS\n\n"
+        f"Attendance Alert - HITS\n\n"
         f"Dear {student_name},\n\n"
         f"Your attendance in {subject_name} ({section_name}) "
         f"has dropped to {percentage:.1f}%, which is below the required 75%.\n\n"

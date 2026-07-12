@@ -37,7 +37,6 @@ async def load_dataset():
     else:
         degree_id = str(existing_degree["_id"])
 
-    # Create subjects from master registry
     course_registry = data.get("master_course_faculty_registry", [])
     subject_map = {}
     for course in course_registry:
@@ -57,7 +56,6 @@ async def load_dataset():
         else:
             subject_map[code] = str(existing["_id"])
 
-    # Create departments and sections
     classes = data.get("classes", [])
     dept_map = {}
     section_map = {}
@@ -90,7 +88,6 @@ async def load_dataset():
         section_id = str(section_result.inserted_id)
         section_map[cls["class_id"]] = section_id
 
-        # Create curriculum entries from weekly timetable
         tt = cls.get("weekly_timetable", {})
         seen_codes = set()
         for day, slots in tt.items():
@@ -113,7 +110,6 @@ async def load_dataset():
                             "subject": subj_id
                         })
 
-        # Create students
         students_data = cls.get("students", [])
         for stu in students_data:
             existing_stu = await db.students.find_one({"rollNo": stu["student_id"]})
@@ -131,7 +127,6 @@ async def load_dataset():
                 stu_result = await db.students.insert_one(stu_doc)
                 student_oid = stu_result.inserted_id
 
-                # Create attendance records
                 for att in stu.get("subject_wise_attendance", []):
                     att_code = att.get("course_code", "")
                     if att_code in subject_map:

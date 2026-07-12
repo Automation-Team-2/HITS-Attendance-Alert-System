@@ -38,7 +38,6 @@ app.include_router(auth.router, prefix="/api/auth", tags=["Auth"])
 app.include_router(teacher.router, prefix="/api/teachers", tags=["Teachers"])
 app.include_router(teacher_subject.router, prefix="/api/assignments", tags=["Teacher Subjects"])
 
-# New routers
 app.include_router(seed.router, prefix="/api/seed", tags=["Seed"])
 app.include_router(attendance.router, prefix="/api/attendance", tags=["Attendance"])
 app.include_router(alerts.router, prefix="/api/alerts", tags=["Alerts"])

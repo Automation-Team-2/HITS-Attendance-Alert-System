@@ -15,7 +15,6 @@ async def create_timetable_slot(slot: Timetable):
     if not curriculum:
         raise HTTPException(status_code=400, detail="Curriculum entry does not exist")
 
-    # prevent double-booking the same section, same day, same period
     existing = await db.timetable.find_one({
         "section": slot.section,
         "dayOfWeek": slot.dayOfWeek,
@@ -61,7 +60,7 @@ async def get_section_timetable(section_id: str):
         result.append(s)
     return result
 
-# frequency check: how many times a week does this subject meet for this section
+
 @router.get("/section/{section_id}/subject/{subject_id}/frequency")
 async def get_subject_frequency(section_id: str, subject_id: str):
     curricula = await db.curriculum.find({"subject": subject_id}).to_list(50)

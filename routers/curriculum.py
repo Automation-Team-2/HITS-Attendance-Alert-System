@@ -41,7 +41,6 @@ async def get_curriculum():
             e["subjectDetails"] = None
     return entries
 
-# GET subjects for a specific department+year+semester — the practical lookup you'll actually use
 @router.get("/lookup")
 async def get_subjects_for(department: str, year: int, semester: int):
     entries = await db.curriculum.find({
