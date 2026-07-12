@@ -18,8 +18,7 @@ Automated attendance monitoring system for Hindustan Institute of Technology and
 HITS-Attendance-Alert-System/
 ├── Backend/          FastAPI REST API (Backend branch)
 ├── Frontend/         Web UI (Frontend branch)
-├── Database/         Datasets and seed data
-└── opencode/         Chat history and workspace config
+└── Database/         Datasets and seed data
 ```
 
 ## Team Branches
