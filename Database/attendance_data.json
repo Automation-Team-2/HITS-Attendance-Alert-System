@@ -1,0 +1,871 @@
+{
+  "institution_metadata": {
+    "institution": "Hindustan Institute of Technology and Science",
+    "academic_year": "2026",
+    "year": "II",
+    "period_slots": [
+      { "period": 1, "start_time": "08:30", "end_time": "09:25", "type": "Lecture" },
+      { "period": 2, "start_time": "09:25", "end_time": "10:20", "type": "Lecture" },
+      { "period": "BREAK", "start_time": "10:20", "end_time": "10:40", "type": "Interval" },
+      { "period": 3, "start_time": "10:40", "end_time": "11:35", "type": "Lecture" },
+      { "period": 4, "start_time": "11:35", "end_time": "12:30", "type": "Lecture" },
+      { "period": "LUNCH", "start_time": "12:30", "end_time": "01:20", "type": "Interval" },
+      { "period": 5, "start_time": "01:20", "end_time": "02:15", "type": "Lecture" }
+    ]
+  },
+  "master_course_faculty_registry": [
+    { "course_code": "EMA51005", "course_name": "Discrete Mathematics", "lecture_credits": 3, "faculty_code": "SHM36", "faculty_name": "Dr. A. K. Sharma" },
+    { "course_code": "GLS51400", "course_name": "Public Speaking and Group Discussion", "lecture_credits": 0, "faculty_code": "HUM01", "faculty_name": "Prof. Priya Nair" },
+    { "course_code": "ECS51004", "course_name": "Data Structures (Mil-I)", "lecture_credits": 3, "faculty_code": "EET94", "faculty_name": "Dr. R. Karthik" },
+    { "course_code": "ECS51005", "course_name": "Fundamentals of Python Programming", "lecture_credits": 2, "faculty_code": "CSF158", "faculty_name": "Ms. Divya Verma" },
+    { "course_code": "ECS51006", "course_name": "Database Management Systems (Mil-I)", "lecture_credits": 2, "faculty_code": "CSF119", "faculty_name": "Prof. Sandeep Kumar" },
+    { "course_code": "GGE51003", "course_name": "Environmental Science and Sustainable Development", "lecture_credits": 2, "faculty_code": "CET13", "faculty_name": "Dr. J. Vijay" },
+    { "course_code": "GGE51025", "course_name": "Industrial Safety", "lecture_credits": 3, "faculty_code": "AUT70", "faculty_name": "Dr. V. R. Anand" },
+    { "course_code": "ASE51001", "course_name": "Aerodynamics I", "lecture_credits": 4, "faculty_code": "AER01", "faculty_name": "Dr. K. Srinivasan" },
+    { "course_code": "ASE51002", "course_name": "Aircraft Propulsion", "lecture_credits": 4, "faculty_code": "AER02", "faculty_name": "Prof. Nitin Raj" },
+    { "course_code": "ECE51001", "course_name": "Digital Communication", "lecture_credits": 4, "faculty_code": "ECE01", "faculty_name": "Dr. H. Subramanian" },
+    { "course_code": "ECE51002", "course_name": "Microprocessors and Microcontrollers", "lecture_credits": 3, "faculty_code": "ECE02", "faculty_name": "Ms. Kavitha Rao" },
+    { "course_code": "EEE51001", "power_electronics": "Power Electronics", "lecture_credits": 4, "faculty_code": "EEE01", "faculty_name": "Dr. Suresh Krishnan" },
+    { "course_code": "EEE51002", "course_name": "Control Systems Engineering", "lecture_credits": 4, "faculty_code": "EEE02", "faculty_name": "Prof. Shreya Rao" }
+  ],
+  "classes": [
+    {
+      "class_id": "HITS_CSE_II_A",
+      "department": "Computer Science & Engineering",
+      "section": "A",
+      "weekly_timetable": {
+        "Monday": [{"period": 1, "code": "ECS51006"}, {"period": 2, "code": "ECS51006"}, {"period": 3, "code": "MENTOR"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "GLS51400"}],
+        "Tuesday": [{"period": 1, "code": "EMA51005"}, {"period": 2, "code": "EMA51005"}, {"period": 3, "code": "ECS51005"}, {"period": 4, "code": "ECS51004"}, {"period": 5, "code": "GGE51003"}],
+        "Wednesday": [{"period": 1, "code": "GGE51025"}, {"period": 2, "code": "GGE51025"}, {"period": 3, "code": "GGE51003"}, {"period": 4, "code": "GGE51003"}, {"period": 5, "code": "GGE51025"}],
+        "Thursday": [{"period": 1, "code": "ECS51005"}, {"period": 2, "code": "GLS51400"}, {"period": 3, "code": "ECS51004"}, {"period": 4, "code": "ECS51004"}, {"period": 5, "code": "ECS51006"}],
+        "Friday": [{"period": 1, "code": "ECS51005"}, {"period": 2, "code": "ECS51005"}, {"period": 3, "code": "ECS51006"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "GLS51400"}]
+      },
+      "students": [
+        {
+          "student_id": "24103001",
+          "name": "Aarav Sharma",
+          "email": "aarav.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [] }
+          ]
+        },
+        {
+          "student_id": "24103002",
+          "name": "Diya Nair",
+          "email": "diya.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [] }
+          ]
+        },
+        {
+          "student_id": "24103003",
+          "name": "Rahul Verma",
+          "email": "rahul.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [] }
+          ]
+        },
+        {
+          "student_id": "24103004",
+          "name": "Ananya Iyer",
+          "email": "ananya.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [] }
+          ]
+        },
+        {
+          "student_id": "24103005",
+          "name": "Vikram Patel",
+          "email": "vikram.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [] }
+          ]
+        },
+        {
+          "student_id": "24103006",
+          "name": "Sneha Reddy",
+          "email": "sneha.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [] }
+          ]
+        },
+        {
+          "student_id": "24103007",
+          "name": "Rohan Das",
+          "email": "rohan.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [] }
+          ]
+        },
+        {
+          "student_id": "24103008",
+          "name": "Kriti Pillai",
+          "email": "kriti.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [] }
+          ]
+        },
+        {
+          "student_id": "24103009",
+          "name": "Aditya Mishra",
+          "email": "aditya.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [] }
+          ]
+        },
+        {
+          "student_id": "24103010",
+          "name": "Meera Joshi",
+          "email": "meera.24csa@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "GGE51025", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "class_id": "HITS_CSE_II_B",
+      "department": "Computer Science & Engineering",
+      "section": "B",
+      "weekly_timetable": {
+        "Monday": [{"period": 1, "code": "EMA51005"}, {"period": 2, "code": "ECS51004"}, {"period": 3, "code": "ECS51005"}, {"period": 4, "code": "ECS51006"}, {"period": 5, "code": "GLS51400"}],
+        "Tuesday": [{"period": 1, "code": "GGE51025"}, {"period": 2, "code": "GGE51025"}, {"period": 3, "code": "MENTOR"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "ECS51006"}],
+        "Wednesday": [{"period": 1, "code": "ECS51004"}, {"period": 2, "code": "ECS51004"}, {"period": 3, "code": "ECS51005"}, {"period": 4, "code": "GGE51003"}, {"period": 5, "code": "GLS51400"}],
+        "Thursday": [{"period": 1, "code": "EMA51005"}, {"period": 2, "code": "EMA51005"}, {"period": 3, "code": "ECS51006"}, {"period": 4, "code": "ECS51006"}, {"period": 5, "code": "GGE51003"}],
+        "Friday": [{"period": 1, "code": "GGE51025"}, {"period": 2, "code": "ECS51005"}, {"period": 3, "code": "ECS51004"}, {"period": 4, "code": "GGE51003"}, {"period": 5, "code": "GLS51400"}]
+      },
+      "students": [
+        {
+          "student_id": "24103101",
+          "name": "Arjun Mehta",
+          "email": "arjun.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103102",
+          "name": "Isha Gupta",
+          "email": "isha.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103103",
+          "name": "Devansh Bhat",
+          "email": "devansh.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103104",
+          "name": "Riya Sen",
+          "email": "riya.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103105",
+          "name": "Kabir Rao",
+          "email": "kabir.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24103106",
+          "name": "Tanvi Hegde",
+          "email": "tanvi.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103107",
+          "name": "Siddharth Jain",
+          "email": "siddharth.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24103108",
+          "name": "Anjali Bose",
+          "email": "anjali.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24103109",
+          "name": "Pranav Shah",
+          "email": "pranav.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103110",
+          "name": "Kavya Goel",
+          "email": "kavya.24csb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "class_id": "HITS_CSE_II_C",
+      "department": "Computer Science & Engineering",
+      "section": "C",
+      "weekly_timetable": {
+        "Monday": [{"period": 1, "code": "ECS51005"}, {"period": 2, "code": "EMA51005"}, {"period": 3, "code": "ECS51004"}, {"period": 4, "code": "ECS51004"}, {"period": 5, "code": "GGE51003"}],
+        "Tuesday": [{"period": 1, "code": "ECS51006"}, {"period": 2, "code": "ECS51006"}, {"period": 3, "code": "GLS51400"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "MENTOR"}],
+        "Wednesday": [{"period": 1, "code": "EMA51005"}, {"period": 2, "code": "EMA51005"}, {"period": 3, "code": "GGE51025"}, {"period": 4, "code": "GGE51025"}, {"period": 5, "code": "ECS51005"}],
+        "Thursday": [{"period": 1, "code": "GGE51003"}, {"period": 2, "code": "GGE51003"}, {"period": 3, "code": "ECS51006"}, {"period": 4, "code": "ECS51004"}, {"period": 5, "code": "GLS51400"}],
+        "Friday": [{"period": 1, "code": "GGE51025"}, {"period": 2, "code": "ECS51005"}, {"period": 3, "code": "ECS51005"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "GLS51400"}]
+      },
+      "students": [
+        {
+          "student_id": "24103201",
+          "name": "Rohan Kapoor",
+          "email": "rohan.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103202",
+          "name": "Sanya Malhotra",
+          "email": "sanya.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103203",
+          "name": "Varun Dhawan",
+          "email": "varun.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103204",
+          "name": "Neha Kakkar",
+          "email": "neha.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103205",
+          "name": "Kunal Deshmukh",
+          "email": "kunal.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103206",
+          "name": "Shruti Hasan",
+          "email": "shruti.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24103207",
+          "name": "Akash Khurana",
+          "email": "akash.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24103208",
+          "name": "Tara Sutaria",
+          "email": "tara.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24103209",
+          "name": "Armaan Malik",
+          "email": "armaan.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24103210",
+          "name": "Alia Bhatt",
+          "email": "alia.24csc@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51004", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "ECS51005", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECS51006", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "class_id": "HITS_AERO_II_A",
+      "department": "Aeronautical Engineering",
+      "section": "A",
+      "weekly_timetable": {
+        "Monday": [{"period": 1, "code": "ASE51001"}, {"period": 2, "code": "ASE51001"}, {"period": 3, "code": "EMA51005"}, {"period": 4, "code": "GGE51003"}, {"period": 5, "code": "GLS51400"}],
+        "Tuesday": [{"period": 1, "code": "ASE51002"}, {"period": 2, "code": "ASE51002"}, {"period": 3, "code": "GGE51025"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "MENTOR"}],
+        "Wednesday": [{"period": 1, "code": "ASE51001"}, {"period": 2, "code": "ASE51002"}, {"period": 3, "code": "EMA51005"}, {"period": 4, "code": "GGE51025"}, {"period": 5, "code": "GLS51400"}],
+        "Thursday": [{"period": 1, "code": "ASE51001"}, {"period": 2, "code": "ASE51002"}, {"period": 3, "code": "GGE51003"}, {"period": 4, "code": "GGE51003"}, {"period": 5, "code": "GGE51025"}],
+        "Friday": [{"period": 1, "code": "ASE51002"}, {"period": 2, "code": "ASE51001"}, {"period": 3, "code": "EMA51005"}, {"period": 4, "code": "GGE51025"}, {"period": 5, "code": "GLS51400"}]
+      },
+      "students": [
+        {
+          "student_id": "24107001",
+          "name": "Vikram Sarabhai",
+          "email": "vikram.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107002",
+          "name": "Kalpana Chawla",
+          "email": "kalpana.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107003",
+          "name": "Rakesh Sharma",
+          "email": "rakesh.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107004",
+          "name": "Srinivas Rao",
+          "email": "srinivas.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107005",
+          "name": "Hardik Pandya",
+          "email": "hardik.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24107006",
+          "name": "Jasprit Bumrah",
+          "email": "jasprit.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107007",
+          "name": "Kishore Kumar",
+          "email": "kishore.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24107008",
+          "name": "Lata Mangeshkar",
+          "email": "lata.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24107009",
+          "name": "Udit Narayan",
+          "email": "udit.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107010",
+          "name": "Kumar Sanu",
+          "email": "kumar.24aea@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 4, "attendance_percentage": 33.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "class_id": "HITS_AERO_II_B",
+      "department": "Aeronautical Engineering",
+      "section": "B",
+      "weekly_timetable": {
+        "Monday": [{"period": 1, "code": "EMA51005"}, {"period": 2, "code": "GGE51003"}, {"period": 3, "code": "ASE51001"}, {"period": 4, "code": "ASE51002"}, {"period": 5, "code": "GLS51400"}],
+        "Tuesday": [{"period": 1, "code": "ASE51001"}, {"period": 2, "code": "ASE51001"}, {"period": 3, "code": "EMA51005"}, {"period": 4, "code": "GGE51025"}, {"period": 5, "code": "MENTOR"}],
+        "Wednesday": [{"period": 1, "code": "ASE51002"}, {"period": 2, "code": "ASE51002"}, {"period": 3, "code": "GGE51025"}, {"period": 4, "code": "GGE51003"}, {"period": 5, "code": "GLS51400"}],
+        "Thursday": [{"period": 1, "code": "EMA51005"}, {"period": 2, "code": "GGE51025"}, {"period": 3, "code": "ASE51001"}, {"period": 4, "code": "ASE51002"}, {"period": 5, "code": "GGE51003"}],
+        "Friday": [{"period": 1, "code": "ASE51001"}, {"period": 2, "code": "ASE51002"}, {"period": 3, "code": "GGE51025"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "GLS51400"}]
+      },
+      "students": [
+        {
+          "student_id": "24107101",
+          "name": "Manas Gupta",
+          "email": "manas.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107102",
+          "name": "Karan Johar",
+          "email": "karan.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107103",
+          "name": "Ekta Kapoor",
+          "email": "ekta.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107104",
+          "name": "Siddharth Roy",
+          "email": "siddharth.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107105",
+          "name": "Ayushmann K.",
+          "email": "ayush.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24107106",
+          "name": "Rajkumar Rao",
+          "email": "rajkumar.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107107",
+          "name": "Vicky Kaushal",
+          "email": "vicky.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24107108",
+          "name": "Kartik Aaryan",
+          "email": "kartik.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24107109",
+          "name": "Ranbir Kapoor",
+          "email": "ranbir.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24107110",
+          "name": "Ranveer Singh",
+          "email": "ranveer.24aeb@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ASE51001", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ASE51002", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "class_id": "HITS_ECE_II_A",
+      "department": "Electronics & Communication Engineering",
+      "section": "A",
+      "weekly_timetable": {
+        "Monday": [{"period": 1, "code": "ECE51001"}, {"period": 2, "code": "ECE51002"}, {"period": 3, "code": "EMA51005"}, {"period": 4, "code": "GGE51003"}, {"period": 5, "code": "GLS51400"}],
+        "Tuesday": [{"period": 1, "code": "ECE51001"}, {"period": 2, "code": "ECE51001"}, {"period": 3, "code": "GGE51025"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "MENTOR"}],
+        "Wednesday": [{"period": 1, "code": "ECE51002"}, {"period": 2, "code": "ECE51002"}, {"period": 3, "code": "GGE51003"}, {"period": 4, "code": "GGE51025"}, {"period": 5, "code": "GLS51400"}],
+        "Thursday": [{"period": 1, "code": "EMA51005"}, {"period": 2, "code": "EMA51005"}, {"period": 3, "code": "ECE51001"}, {"period": 4, "code": "ECE51002"}, {"period": 5, "code": "GGE51003"}],
+        "Friday": [{"period": 1, "code": "ECE51001"}, {"period": 2, "code": "GGE51025"}, {"period": 3, "code": "GGE51025"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "GLS51400"}]
+      },
+      "students": [
+        {
+          "student_id": "24105001",
+          "name": "Amit Patel",
+          "email": "amit.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 12, "attendance_percentage": 100.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24105002",
+          "name": "Neha Sharma",
+          "email": "neha.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24105003",
+          "name": "Siddharth N.",
+          "email": "sid.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24105004",
+          "name": "Pooja Hegde",
+          "email": "pooja.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24105005",
+          "name": "Varun Tej",
+          "email": "varun.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24105006",
+          "name": "Sai Pallavi",
+          "email": "sai.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24105007",
+          "name": "Rashmika M.",
+          "email": "rashmika.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24105008",
+          "name": "Vijay D.",
+          "email": "vijay.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24105009",
+          "name": "Nani Babu",
+          "email": "nani.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 7, "attendance_percentage": 58.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24105010",
+          "name": "Dulquer S.",
+          "email": "dulquer.24ec@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "ECE51001", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "ECE51002", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "class_id": "HITS_EEE_II_A",
+      "department": "Electrical & Electronics Engineering",
+      "section": "A",
+      "weekly_timetable": {
+        "Monday": [{"period": 1, "code": "EEE51001"}, {"period": 2, "code": "EEE51002"}, {"period": 3, "code": "GGE51003"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "GLS51400"}],
+        "Tuesday": [{"period": 1, "code": "EEE51001"}, {"period": 2, "code": "EEE51001"}, {"period": 3, "code": "EMA51005"}, {"period": 4, "code": "GGE51025"}, {"period": 5, "code": "MENTOR"}],
+        "Wednesday": [{"period": 1, "code": "EEE51002"}, {"period": 2, "code": "EEE51002"}, {"period": 3, "code": "GGE51025"}, {"period": 4, "code": "GGE51003"}, {"period": 5, "code": "GLS51400"}],
+        "Thursday": [{"period": 1, "code": "EMA51005"}, {"period": 2, "code": "EMA51005"}, {"period": 3, "code": "EEE51001"}, {"period": 4, "code": "EEE51002"}, {"period": 5, "code": "GGE51003"}],
+        "Friday": [{"period": 1, "code": "EEE51001"}, {"period": 2, "code": "GGE51025"}, {"period": 3, "code": "GGE51025"}, {"period": 4, "code": "EMA51005"}, {"period": 5, "code": "GLS51400"}]
+      },
+      "students": [
+        {
+          "student_id": "24104001",
+          "name": "Manish Tiwari",
+          "email": "manish.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24104002",
+          "name": "Shreya Ghoshal",
+          "email": "shreya.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 11, "attendance_percentage": 91.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24104003",
+          "name": "Vivek Oberoi",
+          "email": "vivek.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24104004",
+          "name": "Payal Rajput",
+          "email": "payal.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 10, "attendance_percentage": 83.33, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24104005",
+          "name": "Gaurav Chopra",
+          "email": "gaurav.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24104006",
+          "name": "Nisha Kothari",
+          "email": "nisha.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24104007",
+          "name": "Abhishek Ray",
+          "email": "abhishek.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 9, "attendance_percentage": 75.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24104008",
+          "name": "Ritu Karhal",
+          "email": "ritu.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 8, "attendance_percentage": 66.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        },
+        {
+          "student_id": "24104009",
+          "name": "Sanjay Dutt",
+          "email": "sanjay.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Present" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 6, "attendance_percentage": 50.00, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Present" }] }
+          ]
+        },
+        {
+          "student_id": "24104010",
+          "name": "Kiran Bedi",
+          "email": "kiran.24ee@hindustanuniv.ac.in",
+          "subject_wise_attendance": [
+            { "course_code": "EEE51001", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] },
+            { "course_code": "EEE51002", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }] },
+            { "course_code": "EMA51005", "classes_conducted": 12, "classes_attended": 5, "attendance_percentage": 41.67, "attendance_log": [{ "date": "2026-07-09", "status": "Absent" }, { "date": "2026-07-10", "status": "Absent" }] }
+          ]
+        }
+      ]
+    }
+  ]
+}
