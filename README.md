@@ -1,6 +1,6 @@
 # HITS Attendance Alert System
 
-Automated attendance monitoring system for Hindustan Institute of Technology and Science. Detects students below 75% attendance and sends automated WhatsApp/SMS warnings.
+Automated attendance monitoring system for Hindustan Institute of Technology and Science. Detects students below 75% attendance and sends automated warning messages.
 
 ## Tech Stack
 
@@ -9,7 +9,7 @@ Automated attendance monitoring system for Hindustan Institute of Technology and
 | Backend | FastAPI + MongoDB (Motor) + APScheduler |
 | Frontend | React 19 + Vite 6 + TypeScript (in progress) |
 | Auth | bcrypt password hashing |
-| Messaging | WhatsApp Cloud API / CallMeBot (configurable) |
+| Messaging | Yet to decide |
 | Database | MongoDB Atlas (async Motor driver) |
 
 ## Project Structure
@@ -37,7 +37,7 @@ HITS-Attendance-Alert-System/
 1. ERP Sync (simulated) - Fake attendance data loaded from Database/attendance_data.json
 2. Daily Scan - APScheduler runs at 5:00 PM, checks all students attendance
 3. Risk Detection - Students with below 75% attendance are flagged
-4. Auto Alert - WhatsApp warning message sent automatically
+4. Auto Alert - Warning message sent automatically
 5. Manual Alert - Faculty can also trigger alerts from the dashboard
 
 ## API Documentation
