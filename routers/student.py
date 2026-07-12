@@ -30,6 +30,11 @@ async def get_students(section: str | None = Query(None)):
         if sectionDoc:
             sectionDoc["_id"] = str(sectionDoc["_id"])
             s["sectionDetails"] = sectionDoc
+        attendance_records = await db.attendance.find({"student": ObjectId(s["_id"])}).to_list(100)
+        total_attended = sum(r["attendedClasses"] for r in attendance_records)
+        total_classes = sum(r["totalClasses"] for r in attendance_records)
+        s["attendance"] = round((total_attended / total_classes) * 100, 2) if total_classes > 0 else 0.0
+        s["isAtRisk"] = s["attendance"] < 75.0
     students.sort(key=lambda s: s.get("rollNo", ""))
     return students
 
