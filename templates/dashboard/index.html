@@ -1,65 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student ERP Tracker</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            orange: {
-              50:  '#FFF7ED',
-              100: '#FFEDD5',
-              200: '#FED7AA',
-              300: '#FDBA74',
-              400: '#FB923C',
-              500: '#F38B1C',
-              600: '#D67415',
-              700: '#B45F11',
-              800: '#8E4A0D',
-              900: '#6B3709',
-            }
-          }
-        }
-      }
-    }
-    </script>
-    <!-- React & ReactDOM (v18) -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <!-- GSAP (v3) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <!-- Chart.js (v4) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-    <!-- Babel Standalone for inline JSX compilation -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- StaggeredMenu Stylesheet -->
-    <link rel="stylesheet" href="StaggeredMenu.css">
-</head>
-<body class="bg-orange-50 font-sans h-screen flex items-center justify-center">
-    <!-- ======================================== -->
-    <!-- LOGIN CONTAINER                          -->
-    <!-- ======================================== -->
-    <div id="login-container" class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
-        <h2 class="text-2xl font-bold text-center text-orange-600 mb-6">ERP Attendance Portal</h2>
-        <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700">Username</label>
-            <input type="text" id="username" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none focus:border-orange-500">
-        </div>
-        <div class="mb-6">
-            <label class="block text-sm font-medium text-gray-700">Password</label>
-            <input type="password" id="password" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none focus:border-orange-500">
-        </div>
-        <button id="login-btn" class="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-700 transition">Login</button>
-    </div>
+{% extends "base.html" %}
+{% load static %}
 
+{% block title %}Dashboard — Student ERP Tracker{% endblock %}
+
+{% block content %}
     <!-- ======================================== -->
-    <!-- DASHBOARD CONTAINER (hidden on load)      -->
+    <!-- DASHBOARD CONTAINER                       -->
     <!-- ======================================== -->
-    <div id="dashboard-container" class="hidden w-full h-full relative flex">
+    <div id="dashboard-container" class="w-full h-full relative flex">
         <!-- React Sidebar Container -->
         <div id="sidebar-root" class="absolute"></div>
         <!-- ==================================== -->
@@ -70,13 +18,39 @@
             <div id="aurora-root" class="absolute inset-0 pointer-events-none z-0"></div>
             <header class="bg-white shadow px-6 py-4 flex justify-between items-center relative z-10">
                 <span class="font-semibold text-gray-700 text-lg">Student Attendance Tracking Panel</span>
-                <span id="backend-status" class="text-gray-500 bg-gray-100 px-3 py-1 rounded-full text-xs font-bold mr-24">Checking...</span>
+                <div class="flex items-center gap-3 mr-24">
+                    <span class="text-xs text-gray-500">Welcome, {{ user.username }}</span>
+                    <span id="backend-status" class="text-gray-500 bg-gray-100 px-3 py-1 rounded-full text-xs font-bold">Checking...</span>
+                </div>
             </header>
             <main class="p-6 flex-1 overflow-y-auto bg-orange-50/50 relative z-10">
                 <!-- ================================ -->
                 <!-- ATTENDANCE TRACKER TAB         -->
                 <!-- ================================ -->
                 <div id="tab-attendance" class="tab-content">
+                    <!-- ============================ -->
+                    <!-- TOOLBAR: SEARCH + FILTERS     -->
+                    <!-- ============================ -->
+                    <div class="flex flex-wrap items-center gap-3 mb-6">
+                        <div class="relative flex-1 min-w-[200px] max-w-md">
+                            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                            <input id="student-search" type="text" placeholder="Search by name or roll number..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition" />
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <label for="attendance-filter" class="text-xs font-semibold text-gray-500 whitespace-nowrap">Threshold:</label>
+                            <select id="attendance-filter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition">
+                                <option value="75" selected>Below 75%</option>
+                                <option value="80">Below 80%</option>
+                                <option value="85">Below 85%</option>
+                                <option value="90">Below 90%</option>
+                                <option value="100">Show All</option>
+                            </select>
+                        </div>
+                        <button id="refresh-btn" class="inline-flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition" title="Refresh data from FastAPI">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                            Refresh
+                        </button>
+                    </div>
                     <!-- ============================ -->
                     <!-- CLASSES GRID VIEW             -->
                     <!-- ============================ -->
@@ -393,7 +367,10 @@
             </main>
         </div>
     </div>
-    <script src="app.js"></script>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/app.js' %}"></script>
 
     <!-- React & StaggeredMenu Integration -->
     <script type="text/babel">
@@ -810,10 +787,10 @@
                     {items && items.length ? (
                       items.map((it, idx) => (
                         <li className="sm-panel-itemWrap" key={it.label + idx}>
-                          <a 
-                            className="sm-panel-item" 
-                            href={it.link} 
-                            aria-label={it.ariaLabel} 
+                          <a
+                            className="sm-panel-item"
+                            href={it.link}
+                            aria-label={it.ariaLabel}
                             data-index={idx + 1}
                             onClick={(e) => {
                               if (it.onClick) {
@@ -857,35 +834,35 @@
 
         const StaggeredMenuApp = () => {
           const menuItems = [
-            { 
-              label: 'Attendance Tracker', 
-              ariaLabel: 'Go to Attendance Tracker', 
+            {
+              label: 'Attendance Tracker',
+              ariaLabel: 'Go to Attendance Tracker',
               link: '#attendance',
               onClick: () => window.switchTab('attendance')
             },
-            { 
-              label: 'Alert History', 
-              ariaLabel: 'Go to Alert History', 
+            {
+              label: 'Alert History',
+              ariaLabel: 'Go to Alert History',
               link: '#history',
               onClick: () => window.switchTab('history')
             },
-            { 
-              label: 'Alert Statistics', 
-              ariaLabel: 'Go to Alert Statistics', 
+            {
+              label: 'Alert Statistics',
+              ariaLabel: 'Go to Alert Statistics',
               link: '#stats',
               onClick: () => window.switchTab('stats')
             },
-            { 
-              label: 'Api Configuration', 
-              ariaLabel: 'Go to API Configuration', 
+            {
+              label: 'Api Configuration',
+              ariaLabel: 'Go to API Configuration',
               link: '#settings',
               onClick: () => window.switchTab('settings')
             },
-            { 
-              label: 'Logout', 
-              ariaLabel: 'Log out', 
-              link: '#logout',
-              onClick: () => window.triggerLogout()
+            {
+              label: 'Logout',
+              ariaLabel: 'Log out',
+              link: '/logout/',
+              onClick: () => { window.location.href = '/logout/'; }
             }
           ];
 
@@ -919,7 +896,7 @@
         root.render(<StaggeredMenuApp />);
     </script>
 
-    <!-- Pure WebGL Aurora — zero external dependencies -->
+    <!-- Pure WebGL Aurora -->
     <script>
     (function() {
       function hexRgb(hex) {
@@ -1102,5 +1079,4 @@
       }
     })();
     </script>
-</body>
-</html>
+{% endblock %}

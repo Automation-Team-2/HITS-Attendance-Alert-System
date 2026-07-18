@@ -143,9 +143,9 @@ window.switchTab = function(tabId) {
     var tabs = document.querySelectorAll('.tab-link');
     tabs.forEach(function(t) { 
         if (t.dataset.tab === tabId) {
-            t.classList.add('bg-amber-500');
+            t.classList.add('bg-orange-500');
         } else {
-            t.classList.remove('bg-amber-500');
+            t.classList.remove('bg-orange-500');
         }
     });
 
@@ -175,7 +175,7 @@ window.fetchData = async function() {
         var apiStudents = await studentsRes.json();
         if (apiSections.length === 0 && apiStudents.length === 0) throw new Error();
         document.getElementById('backend-status').textContent = 'Online';
-        document.getElementById('backend-status').className = 'text-amber-700 bg-amber-100 px-3 py-1 rounded-full text-xs font-bold mr-24';
+        document.getElementById('backend-status').className = 'text-orange-700 bg-orange-100 px-3 py-1 rounded-full text-xs font-bold mr-24';
         usingFallback = false;
         classData = {};
         apiSections.forEach(function(sec) {
@@ -226,11 +226,11 @@ function renderClassCards() {
         var data = classData[key];
         var count = data.students.length;
         html +=
-            '<div class="bg-white rounded-xl shadow p-6 border-l-4 border-amber-500">' +
-                '<span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-3">' + count + ' Students</span>' +
+            '<div class="bg-white rounded-xl shadow p-6 border-l-4 border-orange-500">' +
+                '<span class="inline-block bg-orange-100 text-orange-800 text-xs font-bold px-3 py-1 rounded-full mb-3">' + count + ' Students</span>' +
                 '<h3 class="text-lg font-bold text-gray-800">' + data.name + '</h3>' +
                 '<p class="text-sm text-gray-500 mt-1">' + (data.description || '') + '</p>' +
-                '<button class="view-roster-btn mt-4 w-full bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-md text-sm transition" data-class="' + key + '">View Student Roster</button>' +
+                '<button class="view-roster-btn mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-md text-sm transition" data-class="' + key + '">View Student Roster</button>' +
             '</div>';
     });
     html += '</div>';
@@ -271,7 +271,7 @@ function renderRoster(data) {
             : '<span class="inline-block bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded-full">At Risk</span>';
         var actionBtn = isSafe
             ? '<span class="text-gray-400 text-xs">--</span>'
-            : '<button class="bg-amber-500 hover:bg-amber-600 text-white text-xs px-3 py-1 rounded">Send SMS Alert</button>';
+            : '<button class="bg-orange-500 hover:bg-orange-600 text-white text-xs px-3 py-1 rounded">Send SMS Alert</button>';
         html += '<tr>' +
             '<td class="px-4 py-3">' + s.roll + '</td>' +
             '<td class="px-4 py-3 font-medium text-gray-800">' + s.name + '</td>' +
@@ -315,3 +315,203 @@ function loadApiSettings() {
 // =============================================
 loadApiSettings();
 window.fetchData();
+
+// =============================================
+// CHARTS — Alert Statistics (Chart.js v4)
+// =============================================
+(function initCharts() {
+    if (typeof Chart === 'undefined') return;
+
+    // ---- Color Palette (matches #F38B1C theme) ----
+    var C = {
+        primary:    '#F38B1C',
+        primaryLt:  'rgba(243,139,28,0.18)',
+        primaryDk:  '#D67415',
+        accent:     '#B45F11',
+        accentLt:   'rgba(180,95,17,0.14)',
+        grid:       'rgba(0,0,0,0.06)',
+        gridBorder: 'rgba(0,0,0,0.08)',
+        text:       '#64748b',
+        textBold:   '#1e293b',
+        white:      '#ffffff',
+        green:      '#22c55e',
+        greenLt:    'rgba(34,197,94,0.18)',
+        red:        '#ef4444',
+        redLt:      'rgba(239,68,68,0.18)',
+    };
+
+    // ---- Global Chart.js defaults ----
+    Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+    Chart.defaults.font.size = 12;
+    Chart.defaults.color = C.text;
+    Chart.defaults.plugins.legend.display = false;
+    Chart.defaults.responsive = true;
+    Chart.defaults.maintainAspectRatio = false;
+
+    // ---- Mock Data (swap with API fetch later) ----
+    // Line chart: daily alert volume derived from alert history
+    var lineLabels  = ['Jul 06', 'Jul 07', 'Jul 08', 'Jul 09', 'Jul 10'];
+    var lineSent    = [3, 5, 4, 4, 4];
+    var lineFailed  = [0, 0, 1, 0, 0];
+
+    // Bar chart: class-wise at-risk student count
+    var barLabels = ['B.Tech CSE', 'B.Tech AERO', 'B.Tech IT'];
+    var barCounts = [7, 8, 4];
+
+    // ---- LINE CHART ----
+    var lineCtx = document.getElementById('chart-alert-line');
+    if (lineCtx) {
+        new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                labels: lineLabels,
+                datasets: [
+                    {
+                        label: 'Delivered',
+                        data: lineSent,
+                        borderColor: C.primary,
+                        backgroundColor: C.primaryLt,
+                        borderWidth: 2.5,
+                        pointBackgroundColor: C.white,
+                        pointBorderColor: C.primary,
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        fill: true,
+                        tension: 0.35,
+                    },
+                    {
+                        label: 'Failed',
+                        data: lineFailed,
+                        borderColor: C.red,
+                        backgroundColor: C.redLt,
+                        borderWidth: 2,
+                        borderDash: [5, 4],
+                        pointBackgroundColor: C.white,
+                        pointBorderColor: C.red,
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        fill: true,
+                        tension: 0.35,
+                    }
+                ]
+            },
+            options: {
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            padding: 16,
+                            font: { size: 11, weight: '600' }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: C.textBold,
+                        titleFont: { size: 12, weight: '700' },
+                        bodyFont: { size: 11 },
+                        padding: { top: 10, bottom: 10, left: 14, right: 14 },
+                        cornerRadius: 8,
+                        displayColors: true,
+                        boxPadding: 4,
+                        callbacks: {
+                            title: function(items) { return 'Date: ' + items[0].label; },
+                            label: function(ctx) {
+                                return ' ' + ctx.dataset.label + ': ' + ctx.parsed.y + ' alerts';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 11, weight: '600' } },
+                        border: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: C.grid },
+                        border: { display: false },
+                        ticks: {
+                            stepSize: 1,
+                            font: { size: 11 },
+                            padding: 8
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // ---- BAR CHART ----
+    var barCtx = document.getElementById('chart-subject-bar');
+    if (barCtx) {
+        var barGradient = barCtx.getContext('2d').createLinearGradient(0, 0, 0, 260);
+        barGradient.addColorStop(0, C.primary);
+        barGradient.addColorStop(1, C.accent);
+
+        var barHoverGradient = barCtx.getContext('2d').createLinearGradient(0, 0, 0, 260);
+        barHoverGradient.addColorStop(0, '#FB923C');
+        barHoverGradient.addColorStop(1, C.primary);
+
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: barLabels,
+                datasets: [{
+                    label: 'At-Risk Students',
+                    data: barCounts,
+                    backgroundColor: barGradient,
+                    hoverBackgroundColor: barHoverGradient,
+                    borderRadius: 8,
+                    borderSkipped: false,
+                    barPercentage: 0.6,
+                    categoryPercentage: 0.7,
+                }]
+            },
+            options: {
+                plugins: {
+                    tooltip: {
+                        backgroundColor: C.textBold,
+                        titleFont: { size: 12, weight: '700' },
+                        bodyFont: { size: 11 },
+                        padding: { top: 10, bottom: 10, left: 14, right: 14 },
+                        cornerRadius: 8,
+                        displayColors: false,
+                        callbacks: {
+                            title: function(items) { return items[0].label; },
+                            label: function(ctx) {
+                                return ctx.parsed.y + ' student' + (ctx.parsed.y !== 1 ? 's' : '') + ' below 75% threshold';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            font: { size: 10, weight: '600' },
+                            maxRotation: 0,
+                            autoSkip: false
+                        },
+                        border: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: C.grid },
+                        border: { display: false },
+                        ticks: {
+                            stepSize: 1,
+                            font: { size: 11 },
+                            padding: 8
+                        }
+                    }
+                }
+            }
+        });
+    }
+})();
